@@ -9,7 +9,9 @@ module StoreModel
       assign_parent_to_singular_store_model(attribute)
       return unless attribute.is_a?(Array)
 
-      attribute.each(&method(:assign_parent_to_singular_store_model))
+      attribute.each do |item|
+        assign_parent_to_singular_store_model(item)
+      end
     end
 
     def assign_parent_to_singular_store_model(item)
